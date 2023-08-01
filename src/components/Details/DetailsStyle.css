@@ -1,0 +1,19 @@
+.circular-image {
+    width: 150px; 
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .circular-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .detailsFlex {
+    margin-top: 20px;
+    display: flexbox;
+    justify-content: center;
+    flex-direction: column;
+
+  }
