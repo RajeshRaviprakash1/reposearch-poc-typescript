@@ -12,16 +12,38 @@ function App() {
   const [repositories, setRepositories] = useState([] as IRepoModel[]);
   const getRepositiries = async (name: string):Promise<void> => {
     try{
+      console.log('USERNAME : API call started');
     const response = await fetch(`${process.env.REACT_APP_GITHUB_BASE_URL}users/${name}/repos`);
     const responseData = await response.json();
+    console.log('USERNAME : API call ended with response : ',responseData);
+
     const jsonData1: IRepoModel[] = responseData;
-    if(responseData === null || responseData === '' || responseData?.message === 'Not Found')
+    if(jsonData1.length === 0 || responseData === null || responseData === '' || responseData?.message === 'Not Found')
     {
-      setRepositories([] as IRepoModel[]);
+      console.log('No repos found in username search');
+      console.log('search started for languages');
+
+      //searching in languages : if the input is launguage
+      const response = await fetch(`${process.env.REACT_APP_GITHUB_BASE_URL}search/repositories?q=${name}`);
+      const responseData = await response.json();
+      const jsonContent = JSON.stringify(responseData);
+      const repoContent = JSON.parse(jsonContent);
+      const jsonData1: IRepoModel[] = repoContent.items;
+
+      if(responseData === null || responseData === '' || responseData?.total_count === 0)
+      {
+        console.log('NO repos for languages');
+
+        setRepositories([] as IRepoModel[]);
+      }
+      else{
+        console.log('repos for languages');
+
+        setRepositories(jsonData1);
+      }
     }
     else{
       setRepositories(jsonData1);
-
     }
   }
   catch(ex)

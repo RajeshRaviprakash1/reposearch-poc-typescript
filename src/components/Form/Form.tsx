@@ -14,7 +14,7 @@ export const Form: React.FC<IfirstChildProps> = ({updateRepositories}) => {
     <input type='text' 
     className='input'
         value={userName} 
-        onChange={event => setUserName(event.target.value)}></input>
+        onChange={event => setUserName(event.target.value)} placeholder='language or user or name' required ></input>
     <button className = 'button searchButton' onClick={() => updateRepositories(userName)}> Search</button>
       </section>
   )

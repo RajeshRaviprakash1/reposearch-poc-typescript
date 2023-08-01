@@ -17,29 +17,33 @@ export function Details()
     return(
         <div style={{marginLeft:'20px'}}>
             <Header/>
+            <div style={{display:"flex",justifyContent:'center'}}>
+            
             <div className="detailsFlex">
-            <div className="circular-image">
-                <img src={repoContent.owner.avatar_url} alt="BigCo"/>
-            </div>
-            <div style={{marginTop:'20px'}}>
-            <div>
-            {repoContent.full_name}
-            </div>
-            <div >
-            {repoContent.owner.login}
-            </div>
-            <div style={{fontWeight:'bold', marginTop:'20px', marginBottom:'20px'}}>
-            {repoContent.description}
-            </div>
-            <div>
-            Created on  {c_date}
-            </div>
-            <div>
-            Updated on {u_date}
-            </div>
+            <div style={{fontSize:'25px',padding:'10px'}}>Repository details</div>
+                <div className="circular-image">
+                    <img src={repoContent.owner.avatar_url} alt="BigCo"/>
+                </div>
+                <div style={{marginTop:'20px'}}>
+                <div>
+                {repoContent.full_name}
+                </div>
+                <div >
+                {repoContent.owner.login}
+                </div>
+                <div style={{fontWeight:'bold', marginTop:'20px', marginBottom:'20px'}}>
+                {repoContent.description}
+                </div>
+                <div>
+                Created on  {c_date}
+                </div>
+                <div>
+                Updated on {u_date}
+                </div>
 
-            <a href={repoContent.owner.html_url} target="_blank" rel="noreferrer">
-            {repoContent.owner.html_url} </a>
+                <a href={repoContent.owner.html_url} target="_blank" rel="noreferrer">
+                {repoContent.owner.html_url} </a>
+                </div>
             </div>
             </div>
         </div>

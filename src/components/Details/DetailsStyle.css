@@ -12,8 +12,14 @@
   }
   .detailsFlex {
     margin-top: 20px;
-    display: flexbox;
+    display: flex;
+    width: 20%;
+    padding: 20px;
+    background-color: #c4f5d7;
     justify-content: center;
     flex-direction: column;
-
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    box-shadow: 0 0 5px 5px #60f7b1;
   }
